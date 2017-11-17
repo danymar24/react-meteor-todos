@@ -25,8 +25,6 @@ class App extends Component {
         const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
         const privateTodo = this.refs.privateTodo.checked;
 
-        console.log(privateTodo)
-
         Meteor.call('tasks.insert', text, privateTodo);
 
         ReactDOM.findDOMNode(this.refs.textInput).value = '';

@@ -30,7 +30,7 @@ export default class Task extends Component {
             <li className={taskClassName}>
                 <div className="row">
                     <div className="col s1">
-                        { this.props.task.username === (Meteor.user() && Meteor.user().username) ? 
+                        { this.props.task.owner === Meteor.userId() ? 
                             <label>Completed: 
                                 <div className="switch">
                                     <label>
@@ -52,7 +52,7 @@ export default class Task extends Component {
                         </div>
                     </div>
                     <div className="col s1">
-                        {this.props.task.username === (Meteor.user() && Meteor.user().username) ?
+                        {this.props.task.owner === Meteor.userId() ?
                             <label>Private:
                                 <div className="switch">
                                     <label>
@@ -66,10 +66,11 @@ export default class Task extends Component {
                             </label> : '' }
                     </div>
                     <div className="col s1">
-                        <button className="btn-floating btn-sm waves-effect waves-light red"
-                                onClick={this.deleteThisTask.bind(this)}>
-                            <i className="mdi mdi-delete"></i>
-                        </button>
+                        { this.props.task.owner === Meteor.userId() ?
+                            <button className="btn-floating btn-sm waves-effect waves-light red"
+                                    onClick={this.deleteThisTask.bind(this)}>
+                                <i className="mdi mdi-delete"></i>
+                            </button> : '' }
                     </div>
                 </div>
             </li>
