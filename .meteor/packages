@@ -23,4 +23,5 @@ react-meteor-data
 cleandersonlobo:mdi-icons
 accounts-ui
 accounts-password
-practicalmeteor:mocha
+meteortesting:mocha
+practicalmeteor:chai
